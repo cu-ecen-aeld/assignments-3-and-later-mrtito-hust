@@ -110,7 +110,9 @@ cp writer ${OUTDIR}/rootfs/home
 # TODO: Copy the finder related scripts and executables to the /home directory
 # on the target rootfs
 cp -r ${FINDER_APP_DIR}/finder.sh ${FINDER_APP_DIR}/finder-test.sh ${OUTDIR}/rootfs/home
-cp -vr ../conf $OUTDIR/rootfs/
+cp -r ${FINDER_APP_DIR}/finder-test.sh ${OUTDIR}/rootfs/home
+cp -r ${FINDER_APP_DIR}/conf/* ${OUTDIR}/rootfs/home/conf
+cp -r ${FINDER_APP_DIR}/autorun-qemu.sh ${OUTDIR}/rootfs/home/
 
 # TODO: Chown the root directory
 sudo chown -R root:root ${OUTDIR}/rootfs *
