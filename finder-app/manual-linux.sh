@@ -107,11 +107,17 @@ cd ${FINDER_APP_DIR}
 gcc -o writer writer.c
 cp writer ${OUTDIR}/rootfs/home
 
+if [ ! -d "${OUTDIR}/rootfs/home/conf" ]; then
+
+	mkdir ${OUTDIR}/rootfs/home/conf
+
+fi
 # TODO: Copy the finder related scripts and executables to the /home directory
 # on the target rootfs
-cp -r ${FINDER_APP_DIR}/finder.sh ${FINDER_APP_DIR}/finder-test.sh ${OUTDIR}/rootfs/home
+cp -r ${FINDER_APP_DIR}/conf/username.txt ${OUTDIR}/rootfs/home/conf
+cp -r ${FINDER_APP_DIR}/conf/assignment.txt ${OUTDIR}/rootfs/home/conf
+cp -r ${FINDER_APP_DIR}/finder.sh ${OUTDIR}/rootfs/home
 cp -r ${FINDER_APP_DIR}/finder-test.sh ${OUTDIR}/rootfs/home
-cp -r ${FINDER_APP_DIR}/conf/* ${OUTDIR}/rootfs/home/conf
 cp -r ${FINDER_APP_DIR}/autorun-qemu.sh ${OUTDIR}/rootfs/home/
 
 # TODO: Chown the root directory
