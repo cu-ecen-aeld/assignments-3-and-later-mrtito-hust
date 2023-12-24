@@ -1,14 +1,7 @@
+CC = gcc
 
-COMPILER ?= gcc
-
-ifeq ($(COMPILER), aarch64-none-linux-gnu-)
-	COMPILER = aarch64-none-linux-gnu-gcc
-else
-	COMPILER = gcc
-endif
-
-default:
-	$(COMPILER) writer.c -o writer
+all:
+	$(CROSS_COMPILE)$(CC) $(CFLAGS) writer.c -o writer
 
 clean:
-	rm -rf *.o writer
+	rm -f writer *.o
